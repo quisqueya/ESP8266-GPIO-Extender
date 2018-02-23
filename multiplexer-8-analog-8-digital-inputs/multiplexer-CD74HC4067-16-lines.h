@@ -3,6 +3,7 @@
  
 #include <Arduino.h>
 
+
 class MultiAnalogDigitalRead{
 private:
     
@@ -15,8 +16,7 @@ private:
     const int digitalReadPin  = D8;  // data pin
     const int addressPins0 = D1;
     const int addressPins1 = D2;
-    const int addressPins2 = D4;  //Address pins A0, A1, A2 
-       
+    const int addressPins2 = D4;  //Address pins A0, A1, A2      
 public:
     MultiAnalogDigitalRead();
     ~MultiAnalogDigitalRead();

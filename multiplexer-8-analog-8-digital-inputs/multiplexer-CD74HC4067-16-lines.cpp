@@ -67,7 +67,7 @@ int MultiAnalogDigitalRead::readAnalog(int pin)
      int val=analogRead(analogReadPin);
      return val;
 }
-void MultiAnalogDigitalRead::setAddress(int pinNumber)
+void MultiAnalogDigitalRead::setAddress(int pinNumber, bool digital)
 {
     if(enableSerialMonitor)
     {                             
@@ -83,7 +83,6 @@ void MultiAnalogDigitalRead::setAddress(int pinNumber)
           }    
           return;
      }
-    
     if(enableSerialMonitor)
     {                             
         Serial.print("thePin ==> ");
