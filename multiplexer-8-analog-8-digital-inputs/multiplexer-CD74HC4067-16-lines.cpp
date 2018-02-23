@@ -44,11 +44,11 @@ int MultiAnalogDigitalRead::readDigital(int pin)
            if(enableSerialMonitor)
            {                             
                 Serial.print("Invalid pin number ->");
-                Serial.println(pin+8);
+                Serial.println(pin);
            }    
            return -1;        
      }        
-     setAddress(pin+8);
+     setAddress(pin, true);
      int val=digitalRead(digitalReadPin);
      return val;
 }
@@ -63,7 +63,7 @@ int MultiAnalogDigitalRead::readAnalog(int pin)
            }    
            return -1;        
      }           
-     setAddress(pin);  
+     setAddress(pin, false);  
      int val=analogRead(analogReadPin);
      return val;
 }
@@ -84,17 +84,34 @@ void MultiAnalogDigitalRead::setAddress(int pinNumber)
           return;
      }
     
+    if(enableSerialMonitor)
+    {                             
+        Serial.print("thePin ==> ");
+        Serial.println(pinNumber);
+    } 
     //set address line 0
-    int address= pinNumber & 0x01;
-    digitalWrite(addressPins0, address);
-   
-    address= (pinNumber & 0x02) >> 1;
-    digitalWrite(addressPins1, address);
-
-    address= (pinNumber & 0x04) >> 2;
-    digitalWrite(addressPins2, address);
-
-    address= (pinNumber & 0x08) >> 3;
-    digitalWrite(selectPin,address);
+    int high= (pinNumber & 0x01)!=0?HIGH:LOW;
+    digitalWrite(addressPins0, high);
+    if(enableSerialMonitor)
+    {                             
+        Serial.print("        address Pins 0 ==> ");
+        Serial.println(high);
+    }    
+    high=  (pinNumber & 0x02)!=0?HIGH:LOW;
+    digitalWrite(addressPins1, high);
+    if(enableSerialMonitor)
+    {                             
+        Serial.print("        address Pins 1 ==> ");
+        Serial.println(high);
+    }  
+    high=  (pinNumber & 0x04)!=0?HIGH:LOW;
+    digitalWrite(addressPins2, high);
+    if(enableSerialMonitor)
+    {                             
+        Serial.print("        address Pins 2 ==> ");
+        Serial.println(high);
+    }  
+    high= digital==true?HIGH:LOW;
+    digitalWrite(selectPin,high);
 }
 
