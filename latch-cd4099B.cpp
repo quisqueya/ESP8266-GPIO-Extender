@@ -52,10 +52,9 @@ void LatchCD4099BDriver::begin()
     if(numberOfLatches == 2)
     {
           digitalWrite(writeDisableLatch1, HIGH);
-    } 
-    initialized=true;  
+    }   
     reset();
-    
+    initialized=true;
 }
 void LatchCD4099BDriver::reset()
 {

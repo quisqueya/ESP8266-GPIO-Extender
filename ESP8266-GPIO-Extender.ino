@@ -33,32 +33,64 @@ void setup() {
      }
      Serial.println("");
 
-    multiread.enableSerialMonitor =true; 
+  //  multiread.enableSerialMonitor =true; 
     multiread.begin();  
 
-    latch.enableSerialMonitor =true; 
+  //  latch.enableSerialMonitor =true; 
     latch.begin();
+    
+  //turn of digital outputs off
+   for(int i=0; i<16;i++)
+  {
+      latch.setPin(i, LOW);
+      delay(1000);
+  }
 }
-int oldValue=0;
+int pinState=HIGH;
+int oldValue=LOW;
 void loop() {
   // put your main code here, to run repeatedly:
-  if(oldValue==LOW)
-  {
-      oldValue=HIGH;
-  }
-  else
-  {
-       oldValue=LOW;
-  }
-  latch.setPin(0, oldValue);
-  delay(1000);
+/*
+   //digital outputs test
+   delay(1000);
+   latch.setPin(outPin, pinState);
+   outPin++;
+   if(outPin==16)
+   {
+         outPin=0;
+         if(pinState==HIGH)
+         {
+              pinState=LOW;                
+         }
+         else
+         {
+              pinState=HIGH;
+         }
+   }     
+ */
+ // digital input test
+ int val=0;
+ for(int i=0; i<8;i++)
+ {
+     val=multiread.readDigital(i);
+     delay(2);
+     if(val==HIGH)
+     {
+         latch.setPin(i, pinState);
+         if(i==7)
+         {
+             if(pinState==HIGH)
+             {
+                  pinState=LOW;
+             }
+             else
+             {
+                  pinState=HIGH;
+             
+             }
+         }
+     }
+     
+ }
 
-  latch.setPin(1, oldValue);
-  delay(1000);
-   
-  latch.setPin(2, oldValue);
-  delay(1000);
- 
-  latch.setPin(3, oldValue);
-  delay(1000);
 }

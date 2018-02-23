@@ -8,7 +8,7 @@ class MultiAnalogDigitalRead{
 private:
     
     bool initialized;
-    void setAddress(int pinNumber);
+    void setAddress(int pinNumber, bool digital);
 
     // *** D0 ==> LOW = analog read select; HIGH = digital read select
     const int selectPin = D0;
