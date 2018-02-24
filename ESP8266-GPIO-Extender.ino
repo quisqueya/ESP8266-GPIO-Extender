@@ -88,6 +88,7 @@ void loop() {
                   pinState=HIGH;
              
              }
+             delay(1000);
          }
      }
      
