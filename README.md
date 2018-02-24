@@ -109,4 +109,4 @@ void loop() {
      }
 }
 
-See the provided schematic image for wiring the chips and breakout module.
+See the provided schematic image for wiring the chips and breakout module. ![](GPIO-Extender-.png) 
