@@ -110,3 +110,13 @@ void loop() {
 }
 
 See the provided schematic image for wiring the chips and breakout module. ![](GPIO-Extender-.png) 
+
+Images of my ESP8266 NodeMCU GPIO Extender Shield.
+
+![](GPIO-Extender-0.png)
+
+![](GPIO-Extender-1.png)
+
+![](GPIO-Extender-2.png)
+
+![](GPIO-Extender-3.png)
