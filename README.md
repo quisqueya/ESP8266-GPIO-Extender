@@ -1,5 +1,5 @@
 # ESP8266-GPIO-Extender
-Expands the NodeMCU module GPIO to 16 digital outputs, 8 digital inputs, and 8 analog inputs using two CD4099B latch 8-bit chips to provide 16 digital output pins. These output pins have persistante states, meaning that they keep the state that you assign them indepedant of each other. A CD74HC4067 multiplexer/de-multiplexer breakout module is used to provide 8 digital inputs and 8 analog inputs. The two CD4099B and the CD74HC4067 chips share three of the NodeMCU GPIO (D1, D2, and D3) like kind of a common bus.
+Expands the NodeMCU module GPIO to 16 digital outputs, 8 digital inputs, and 8 analog inputs using two CD4099B latch 8-bit chips to provide 16 digital output pins. These output pins have persistant states, meaning that they keep the state that you assign them independent of each other. A CD74HC4067 multiplexer/de-multiplexer breakout module is used to provide 8 digital inputs and 8 analog inputs. The two CD4099B and the CD74HC4067 chips share three of the NodeMCU GPIO (D1, D2, and D3) like kind of a common bus.
 
 ------------------------------------------------------------------------------------------------------------
 
