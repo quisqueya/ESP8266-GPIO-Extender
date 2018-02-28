@@ -68,8 +68,9 @@ void loop() {
          }
    }     
  */
+  int val=0;
+/* 
  // digital input test
- int val=0;
  for(int i=0; i<8;i++)
  {
      val=multiread.readDigital(i);
@@ -90,8 +91,25 @@ void loop() {
              }
              delay(1000);
          }
-     }
-     
+     }    
  }
-
+*/
+// analog input test
+ int oldval[8]={LOW,LOW,LOW,LOW,LOW,LOW,LOW,LOW};
+ for(int i=0; i<8;i++)
+ {
+    latch.setPin(i, LOW);
+ }   
+ delay(2000); 
+ for(int i=0; i<8;i++)
+ {
+     val=multiread.readAnalog(i);
+     delay(10);
+     if(val < 900)
+     {
+          oldval[i]=HIGH;
+          latch.setPin(i, HIGH);
+     }    
+ }
+ delay(2000);
 }
